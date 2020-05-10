@@ -18,7 +18,7 @@ __Step 1: Execute SQL Scripts in PGAdmin4__
 __Step 2: Import the project from Git repository__
 
 * In the Project Explorer Right click 'Import' &rarr; Projects from Git &rarr; click 'Next'
-* Choose 'Clone URI' click &rarr; Next and provide the URI &rarr; click Next &rarr; Click Finish.
+* Choose 'Clone URI' click &rarr; Next and provide the URI &rarr; 'https://github.com/sangeetha-aalayamani-cloud/product-master.git' click Next &rarr; Click Finish.
 
 __Step 3: To run the product master project__
 
