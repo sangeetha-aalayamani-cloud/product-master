@@ -18,11 +18,17 @@ import com.products.exception.ProductNotFoundException;
 import com.products.model.Product;
 import com.products.service.ProductService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 /**
  * 
  * @author sangeetha
  *
  */
+@Api(value = "ProductController", description = "REST APIs related to Product Entity!!!!")
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -38,6 +44,12 @@ public class ProductController {
 	 * Get all product details
 	 * @return
 	 */
+	@ApiOperation(value = "Get list of Products in the System ", response = Iterable.class, tags = "getProductDetails")
+	@ApiResponses(value = { 
+	            @ApiResponse(code = 200, message = "Success | OK"),
+	            @ApiResponse(code = 401, message = "not authorized!"), 
+	            @ApiResponse(code = 403, message = "forbidden!!!"),
+	            @ApiResponse(code = 404, message = "not found!!!") })
 	@RequestMapping(value="/getProductDetails", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
@@ -55,6 +67,7 @@ public class ProductController {
 	 * @param id
 	 * @return
 	 */
+    @ApiOperation(value = "Get specific Product By Id", response = Product.class, tags = "getProductById")
 	@RequestMapping(value="/getProductById/{id}",method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
